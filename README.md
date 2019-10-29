@@ -9,49 +9,49 @@ output:
 ---
 Summary:
 1.    Code for reading in the dataset and/or processing the data
-        Activity <- read.csv("C:/Users/klein337/Documents/RProgWork/activity.csv")
-        Activity$date <- as.Date(Activity$date,"%Y-%m-%d")
-        View(Activity)
+        - Activity <- read.csv("C:/Users/klein337/Documents/RProgWork/activity.csv")
+        - Activity$date <- as.Date(Activity$date,"%Y-%m-%d")
+        - View(Activity)
         
 2.    Histogram of the total number of steps taken each day
-        See "Totalstepsbyday"
+        - See "Totalstepsbyday"
         
 3.    Mean and median number of steps taken each day
-        mean: The mean number of steps taken each day is 10766 steps
-        median: The median number of steps taken each day is 10765 steps
+       -  mean: The mean number of steps taken each day is 10766 steps
+       -  median: The median number of steps taken each day is 10765 steps
         
 4.    Time series plot of the average number of steps taken
-        See "Totalstepsnona"
+      -   See "Totalstepsnona"
         
 5.    The 5-minute interval that, on average, contains the maximum number of steps
-        Interval: The interval that contains the maximum number of steps is interval 835
+      -   Interval: The interval that contains the maximum number of steps is interval 835
         
 6.    Code to describe and show a strategy for imputing missing data
-        Used the mean total of the day to replace NA values, and 0 if there were no steps taken at all.
-        code:
-          ActivityLong <- dcast(Activity, interval ~ date, value.var = "steps") #dcast from long to wide
-          ActivityLongNA <- na_mean(ActivityLong, option = "mean") #replace NA with mean for the day
-          ActivityLongNA[is.na(ActivityLongNA)] <- 0 #replace remaining NA with 0, no steps that day
-          View(ActivityLongNA)
+       -  Used the mean total of the day to replace NA values, and 0 if there were no steps taken at all.
+       -  code:
+        -   ActivityLong <- dcast(Activity, interval ~ date, value.var = "steps") #dcast from long to wide
+        -   ActivityLongNA <- na_mean(ActivityLong, option = "mean") #replace NA with mean for the day
+        -   ActivityLongNA[is.na(ActivityLongNA)] <- 0 #replace remaining NA with 0, no steps that day
+         -  View(ActivityLongNA)
   
 7.    Histogram of the total number of steps taken each day after missing values are imputed
-        See "Totalstepsyesna"
+      -   See "Totalstepsyesna"
 
 8.    Panel plot comparing the average number of steps taken per 5-minute interval across weekdays and weekends
-        See "intervalbysteps5min"
+      -   See "intervalbysteps5min"
         
 9.    All of the R code needed to reproduce the results (numbers, plots, etc.) in the report
-        See "PA1_template.Rmd"
+      -   See "PA1_template.Rmd"
 
 
 
 Full code:
 
 # **Course 5 Reproducible Research, Project 1**
-This assignment analyzes the amount of  steps taken during distinct 5-minute time intervals over the 24 hour day. Variables included in the original dataset are:
-   ** Steps: number of steps taken in a 5 minute interval, with missing values coded as NA **
-   ** Date: The date on which the measurement was taken in YYYY-MM-DD format **
-   ** Interval: Identifier for the 5-minute interval in which measurement was taken **
+-This assignment analyzes the amount of  steps taken during distinct 5-minute time intervals over the 24 hour day. Variables included in the original dataset are:
+   - Steps: number of steps taken in a 5 minute interval, with missing values coded as NA 
+   - Date: The date on which the measurement was taken in YYYY-MM-DD format 
+   - Interval: Identifier for the 5-minute interval in which measurement was taken 
 
 Below is the analysis on this data: 
 
