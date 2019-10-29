@@ -24,7 +24,7 @@ View(Activity)
 ```
 ##Step 2. What is the mean total number of steps taken per day?
 ###2a. Total Number of Steps taken Per day 
-The following code and table shows the total number of steps taken per day, omitting the NA values:
+**The following code and table shows the total number of steps taken per day, omitting the NA values:**
 ```{r}
 TotalSteps <- aggregate(steps ~ date, data = Activity, sum, na.action = na.omit)
 TotalSteps
